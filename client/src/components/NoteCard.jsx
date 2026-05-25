@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
 function NoteCard({ note, setSelectedNote }) {
   return (
-    <div 
-    className="notecard"
-    onClick={() => setSelectedNote(note)}>
+    <div
+      className="note-card"
+      onClick={() => setSelectedNote(note)}
+    >
       <h3>{note.title}</h3>
+
       <p>{note.body}</p>
 
       <span className="tag">
