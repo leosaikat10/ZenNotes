@@ -29,6 +29,9 @@ const [notes, setNotes] = useState([
     tag: "ideas",
   },
 ]);
+ 
+
+const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div className="app">
@@ -37,8 +40,11 @@ const [notes, setNotes] = useState([
       setNotes={setNotes}
       setSelectedNote={setSelectedNote}
        />
-      <MainContent  notes={notes}
-        setSelectedNote={setSelectedNote}
+      <MainContent  
+      notes={notes}
+      setSelectedNote={setSelectedNote}
+      searchTerm={searchTerm}
+      setSearchTerm={setSearchTerm}
         />
       <EditorPanel selectedNote={selectedNote}
       notes={notes}
