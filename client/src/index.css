@@ -525,3 +525,86 @@ textarea:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
+
+/* EMPTY STATE */
+
+.empty-state {
+  width: 100%;
+  margin-top: 80px;
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.empty-state::before {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.empty-state h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 2;
+  letter-spacing: -0.5px;
+}
+
+.empty-state p {
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* Empty state icon animation */
+.empty-state::after {
+  content: '📝';
+  font-size: 64px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.5;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

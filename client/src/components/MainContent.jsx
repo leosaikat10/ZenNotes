@@ -27,20 +27,27 @@ function MainContent({
         <SearchBar 
         searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-        
+
       </div>
 
       <div className="notes-grid">
-        {filteredNotes.map((note) => (
-          <NoteCard
-            key={note.id}
-            note={note}
-            setSelectedNote={setSelectedNote}
-          />
 
+        {filteredNotes.length === 0 ? (
 
-        ))}
-
+          <div className="empty-state">
+            <h2>No Notes Yet</h2>
+            <p>Create your first note 🚀</p>
+          </div>
+          
+        ) : (
+          filteredNotes.map((note) => (
+            <NoteCard
+              key={note.id}
+              note={note}
+              setSelectedNote={setSelectedNote}
+            />
+          ))
+        )}
       </div>
 
     </div>

@@ -7,28 +7,7 @@ import EditorPanel from './components/EditorPanel';
 function App() {
   const [selectedNote, setSelectedNote] = useState(null);
 
-const [notes, setNotes] = useState([
-  {
-    id: 1,
-    title: "Meeting Notes",
-    body: "Discuss React project structure...",
-    tag: "work",
-  },
-
-  {
-    id: 2,
-    title: "Shopping List",
-    body: "Milk, Bread, Coffee",
-    tag: "personal",
-  },
-
-  {
-    id: 3,
-    title: "Startup Idea",
-    body: "AI powered learning app",
-    tag: "ideas",
-  },
-]);
+const [notes, setNotes] = useState([]);
  
 
 const [searchTerm, setSearchTerm] = useState("");
