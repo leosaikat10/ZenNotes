@@ -13,9 +13,13 @@ function EditorPanel({ selectedNote }) {
     <div className="editor-panel">
       <input 
       type = "text" 
-      value = {selectedNote.title}></input>
+      value = {selectedNote.title}
+      readOnly
+      ></input>
       <textarea
-      value = {selectedNote.body}></textarea>
+      value = {selectedNote.body}
+      readOnly
+      ></textarea>
 
       <div className="editor-buttons">
         <button >Save</button>
