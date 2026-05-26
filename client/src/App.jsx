@@ -32,10 +32,19 @@ const [notes, setNotes] = useState([
 
   return (
     <div className="app">
-      <Sidebar />
+      <Sidebar
+      notes={notes}
+      setNotes={setNotes}
+      setSelectedNote={setSelectedNote}
+       />
       <MainContent  notes={notes}
-        setSelectedNote={setSelectedNote}/>
-      <EditorPanel selectedNote={selectedNote}/>
+        setSelectedNote={setSelectedNote}
+        />
+      <EditorPanel selectedNote={selectedNote}
+      notes={notes}
+      setNotes={setNotes}
+      setSelectedNote={setSelectedNote}
+      />
     </div>
   );
 }

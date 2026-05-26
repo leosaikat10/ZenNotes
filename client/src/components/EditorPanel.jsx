@@ -1,6 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-function EditorPanel({ selectedNote }) {
+function EditorPanel({ selectedNote , notes, setNotes, setSelectedNote}) {
+  const [editedTitle, setEditedTitle] = useState("");
+  const [editedBody, setEditedBody] = useState("");
+
+  useEffect(() => {
+    if (selectedNote) {
+      setEditedTitle(selectedNote.title);
+      setEditedBody(selectedNote.body);
+    }
+  }, [selectedNote]);
+  
+  // Save the edited note
+  const handleSave = () => {
+
+    const updatedNote = notes.map((note) => {
+      if (note.id === selectedNote.id) {
+
+        return {
+           ...note,
+           title: editedTitle, 
+           body: editedBody };
+      }
+      return note;
+    });
+    setNotes(updatedNote);
+  };
+  // Delete the note
+  const handleDelete = () => {
+    const filteredNotes = notes.filter((note) => note.id !== selectedNote.id);
+
+    setNotes(filteredNotes);
+
+    setSelectedNote(null);
+  }
+
   if (!selectedNote) {
     return (
       <div className="editor-panel">
@@ -11,23 +45,27 @@ function EditorPanel({ selectedNote }) {
 
   return (
     <div className="editor-panel">
+
       <input 
       type = "text" 
-      value = {selectedNote.title}
-      readOnly
+      value = {editedTitle}
+      onChange = {(e) => setEditedTitle(e.target.value)}
       ></input>
+
       <textarea
-      value = {selectedNote.body}
-      readOnly
+      value = {editedBody}
+      onChange = {(e) => setEditedBody(e.target.value)}
       ></textarea>
 
       <div className="editor-buttons">
-        <button >Save</button>
-        <button >Delete</button>
+
+        <button onClick={handleSave}>Save</button>
+
+        <button onClick={handleDelete}>Delete</button>
+
       </div>
      </div>
   );
-
 }
 
 export default EditorPanel;

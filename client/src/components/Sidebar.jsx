@@ -1,6 +1,18 @@
 import React from "react";
 
-function Sidebar() {
+function Sidebar({ notes, setNotes, setSelectedNote }) {
+
+  const createNewNote = () => {
+    const newNote = {
+      id: Date.now(),
+      title: "Untitled Note",
+      body: "Start writing your note here...",
+      tag: "persona",
+    };
+    setNotes([newNote, ...notes]);
+    setSelectedNote(newNote);
+  };
+
   return (
     <div className="sidebar">
       <h2 className ="logo">ZenNotes</h2>
@@ -20,7 +32,9 @@ function Sidebar() {
         </div>
       </div>
 
-      <button className="new-note-btn">+ New Note</button>
+      <button className="new-note-btn"
+      onClick={createNewNote}
+      >+ New Note</button>
 
     </div>
   );
