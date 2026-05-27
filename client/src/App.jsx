@@ -1,4 +1,4 @@
-import React ,{useState}from 'react';
+import React, { useState, useEffect } from "react";
 
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
@@ -7,8 +7,23 @@ import EditorPanel from './components/EditorPanel';
 function App() {
   const [selectedNote, setSelectedNote] = useState(null);
 
-const [notes, setNotes] = useState([]);
- 
+const [notes, setNotes] = useState(() => {
+
+  const savedNotes = localStorage.getItem("notes");
+
+  return savedNotes
+    ? JSON.parse(savedNotes)
+    : [];
+});
+
+useEffect(() => {
+
+  localStorage.setItem(
+    "notes",
+    JSON.stringify(notes)
+  );
+
+}, [notes]);
 
 const [searchTerm, setSearchTerm] = useState("");
 
