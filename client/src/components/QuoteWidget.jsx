@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import "../styles/QuoteWidget.css";
 
 function QuoteWidget() {
   const [quote, setQuote] = useState('');
@@ -10,13 +11,12 @@ function QuoteWidget() {
 
     try {
       const response = await fetch(
-        'https://api.quotable.io/random'
-      );
-
+  "https://dummyjson.com/quotes/random"
+);
       const data = await response.json();
 
-      setQuote(data.content);
-      setAuthor(data.author);
+     setQuote(data.quote);
+     setAuthor(data.author);
     } catch (error) {
       console.error('Error fetching quote:', error);
 
@@ -31,18 +31,36 @@ function QuoteWidget() {
     fetchQuote();
   }, []);
 
-  return (
-    <div className="quote-widget">
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <p>"{quote}"</p>
-          <p>- {author}</p>
-        </>
-      )}
+return (
+  <div className="quote-widget">
+    <div className="quote-header">
+      <span className="quote-icon">❝</span>
+
+      <button
+        className="refresh-btn"
+        onClick={fetchQuote}
+      >
+        ↻
+      </button>
     </div>
-  );
+
+    {loading ? (
+      <p className="loading">
+        Loading inspiration...
+      </p>
+    ) : (
+      <>
+        <p className="quote-text">
+          {quote}
+        </p>
+
+        <p className="quote-author">
+          — {author}
+        </p>
+      </>
+    )}
+  </div>
+);
 }
 
 export default QuoteWidget;
