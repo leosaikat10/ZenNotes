@@ -21,6 +21,21 @@ function QuoteWidget() {
     }
     setLoading(false);
   };
+ useEffect(() => {
+    fetchQuote();
+  }, []);
 
+  return (
+    <div className="quote-widget">
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <p>"{quote}"</p>
+          <p>- {author}</p>
+        </>
+      )}
+    </div>
+  );
 
 }
