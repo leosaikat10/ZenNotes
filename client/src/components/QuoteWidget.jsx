@@ -33,34 +33,34 @@ function QuoteWidget() {
 
 return (
   <div className="quote-widget">
-    <div className="quote-header">
-      <span className="quote-icon">❝</span>
+  <div className="quote-header">
+    <span className="quote-icon">❝</span>
 
-      <button
-        className="refresh-btn"
-        onClick={fetchQuote}
-      >
-        ↻
-      </button>
-    </div>
-
-    {loading ? (
-      <p className="loading">
-        Loading inspiration...
-      </p>
-    ) : (
-      <>
-        <p className="quote-text">
-          {quote}
-        </p>
-
-        <p className="quote-author">
-          — {author}
-        </p>
-      </>
-    )}
+    <button
+      className="refresh-btn"
+      onClick={fetchQuote}
+    >
+      ↻
+    </button>
   </div>
-);
+
+  {loading ? (
+    <p className="loading">
+      Loading...
+    </p>
+  ) : (
+    <>
+      <p className="quote-text">
+        {quote}
+      </p>
+
+      <p className="quote-author">
+        — {author}
+      </p>
+    </>
+  )}
+  </div>
+  );
 }
 
 export default QuoteWidget;

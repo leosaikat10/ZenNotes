@@ -1,4 +1,5 @@
 import React from "react";
+import QuoteWidget from "./QuoteWidget";
 
 function Sidebar({ notes, setNotes, setSelectedNote }) {
 
@@ -32,6 +33,8 @@ function Sidebar({ notes, setNotes, setSelectedNote }) {
         </div>
       </div>
 
+      <QuoteWidget/>
+      
       <button className="new-note-btn"
       onClick={createNewNote}
       >+ New Note</button>

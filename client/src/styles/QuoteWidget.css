@@ -1,38 +1,21 @@
 .quote-widget {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
+  margin-top: auto;
+  margin-bottom: 20px;
 
-  width: 280px;
-  min-height: 140px;
-
-  padding: 18px;
-  border-radius: 20px;
-
-  background: rgba(20, 20, 45, 0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(18, 18, 45, 0.95);
+  border-radius: 16px;
+  padding: 16px;
 
   border: 1px solid rgba(168, 85, 247, 0.3);
 
+  color: white;
+}
+
+.quote-widget:hover {
+  transform: translateY(-3px);
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35),
-    0 0 20px rgba(168, 85, 247, 0.15);
-
-  z-index: 999;
-}
-
-.quote-text {
-  color: #f8fafc;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.quote-author {
-  color: #a855f7;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 14px;
+    0 15px 35px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(168, 85, 247, 0.25);
 }
 
 .quote-header {
@@ -43,16 +26,17 @@
 }
 
 .quote-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #a855f7;
+  line-height: 1;
 }
 
 .refresh-btn {
-  border: none;
   background: transparent;
-  color: #cbd5e1;
+  border: none;
+  color: #d1d5db;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: 0.2s ease;
 }
 
@@ -61,7 +45,21 @@
   transform: rotate(90deg);
 }
 
+.quote-text {
+  color: #f8fafc;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.quote-author {
+  color: #a855f7;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+}
+
 .loading {
   color: #94a3b8;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }

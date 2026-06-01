@@ -46,8 +46,6 @@ const [searchTerm, setSearchTerm] = useState("");
       setNotes={setNotes}
       setSelectedNote={setSelectedNote}
       />
-      
-      <QuoteWidget />
     </div>
   );
 }
