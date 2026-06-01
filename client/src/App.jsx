@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import EditorPanel from './components/EditorPanel';
+import QuoteWidget from "./components/QuoteWidget";
 
 function App() {
   const [selectedNote, setSelectedNote] = useState(null);
@@ -45,6 +46,7 @@ const [searchTerm, setSearchTerm] = useState("");
       setNotes={setNotes}
       setSelectedNote={setSelectedNote}
       />
+      <QuoteWidget />
     </div>
   );
 }
